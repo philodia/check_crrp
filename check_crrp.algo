@@ -1,0 +1,26 @@
+ALGORITHM CreateArrayRecursive
+GOAL Create an array using recursion
+BEGINNING
+     ARRAY_SIZE CONSTANT <- 10
+    
+     FUNCTION FillArray(position: INTEGER): ARRAY[1..ARRAY_SIZE] OF INTEGER
+     BEGINNING
+         array VARIABLE: ARRAY[1..ARRAY_SIZE] OF INTEGER
+        
+         IF position <= ARRAY_SIZE THEN
+             array[position] <- position
+             array <- FillArray(position + 1)
+         OTHERWISE
+             RETURN table
+         END IF
+        
+         RETURN table
+     END_FUNCTION
+    
+     VARIABLE myArray: ARRAY[1..ARRAY_SIZE] OF INTEGER
+     myArray <- FillArray(1)
+    
+     FOR i FROM 1 TO ARRAY_SIZE MAKE
+         WRITE myArray[i]
+     END_FOR
+END
